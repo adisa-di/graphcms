@@ -1,12 +1,18 @@
 import React from 'react';
+import './styles/styles.css'
 
-function Posts({ posts }) {
+function Posts({ posts, author }) {
   return (
-    <div>{posts.map((post, idx) => {
-      return (
-        <div key={idx}>{post.title}</div>
-      )
-    })}</div>
+    <>
+      <h4>Posts By: {author} </h4>
+      <div className="posts">
+        {posts.map((post, idx) => {
+          return (
+            <div key={idx} className="post">{idx + 1}. {post.title}</div>
+          )
+        })}
+      </div>
+    </>
   )
 }
 
