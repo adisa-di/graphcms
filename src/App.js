@@ -4,6 +4,15 @@ import { useRequest } from './hooks';
 import Posts from './Posts';
 import './styles/styles.css';
 
+const authorStyle = (selected) => {
+
+  const bgColor = selected ? "#e2c2b9" : "#fef5ed"; 
+
+  return {
+    backgroundColor: bgColor
+  }
+}
+
 function App() {
   const [authors, setAuthors] = useState(null);
   const [posts, setPosts] = useState([]);
@@ -53,7 +62,7 @@ function App() {
           <>
             <div className="author-wrapper">
               {authors.map(({ id, name, title }) => (
-                <div key={id} className="author">
+                <div key={id} className="author" style={authorStyle(id === currAuthor.id)}>
                     <div className="info">
                       <h4>
                         <Link to={`/author/${id}`} onClick={() => setAuthor({ id, name })}>
