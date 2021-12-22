@@ -55,7 +55,6 @@ function App() {
         }
         `
       )
-      console.log(author.posts);
       setPosts(author.posts);
     }
     
@@ -89,7 +88,6 @@ function App() {
             <Switch>
               <Route path={`/author/${authorId}`}>
                 <Posts posts={posts} />
-                {/* <div className="author">hello</div> */}
               </Route>
             </Switch>
           </>
